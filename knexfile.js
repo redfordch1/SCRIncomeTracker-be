@@ -19,7 +19,7 @@ module.exports = {
     seeds: {
       directory: "./data/seeds",
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
   },
 
   staging: {
@@ -39,18 +39,15 @@ module.exports = {
   },
 
   production: {
-    client: "sqlite3",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
+    client: "pg",
+    connection: process.env.HEROKU_POSTGRESQL_BROWN_URL,
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tablename: "knex_migrations",
+      directory: "./data/migrations",
     },
   },
 };
