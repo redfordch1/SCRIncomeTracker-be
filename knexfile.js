@@ -41,13 +41,5 @@ module.exports = {
   production: {
     client: "pg",
     connection: process.env.HEROKU_POSTGRESQL_BROWN_URL,
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tablename: "knex_migrations",
-      directory: "./data/migrations",
-    },
   },
 };
