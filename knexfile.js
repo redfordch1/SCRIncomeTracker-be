@@ -40,9 +40,8 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: process.env.DATABASE_URL,
+    connection: process.env.HEROKU_POSTGRESQL_BROWN_URL,
     migrations: {
-      tableName: "dbmigrations",
       directory: "./data/migrations",
     },
     seeds: {
