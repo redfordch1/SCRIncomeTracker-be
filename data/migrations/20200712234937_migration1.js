@@ -26,7 +26,7 @@ exports.up = function (knex) {
         .references("id")
         .inTable("users")
         .onDelete("CASCADE");
-      tbl.float("total_for_month");
+      tbl.string("total_for_month");
       tbl.timestamp("date").notNullable().defaultTo(knex.fn.now());
     });
 };
