@@ -7,16 +7,10 @@ router.post("/", (req, res) => {
   monthlyTotals
     .add(newTotal)
     .then((total) => {
-      if (!total.length) {
-        res.status(422).json({
-          message: "please provide a total for the day",
-        });
-      } else {
-        res.status(201).json({
-          total,
-          message: "Total was created",
-        });
-      }
+      res.status(201).json({
+        total,
+        message: "Total was created",
+      });
     })
     .catch((err) => {
       console.log(err);
