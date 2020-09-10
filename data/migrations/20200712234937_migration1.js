@@ -15,7 +15,7 @@ exports.up = function (knex) {
         .inTable("users")
         .onDelete("CASCADE");
       tbl.float("total_for_day");
-      tbl.string("date");
+      tbl.timestamp("date").notNullable().defaultTo(knex.fn.now());
     })
     .createTable("monthly_totals", (tbl) => {
       tbl.increments();
@@ -27,7 +27,7 @@ exports.up = function (knex) {
         .inTable("users")
         .onDelete("CASCADE");
       tbl.float("total_for_month");
-      tbl.string("date");
+      tbl.timestamp("date").notNullable().defaultTo(knex.fn.now());
     });
 };
 
