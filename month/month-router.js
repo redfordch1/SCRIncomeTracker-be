@@ -4,6 +4,7 @@ const monthlyTotals = require("./month-model.js");
 //* ============================ ROUTE FOR NEW TOTAL ===============================
 router.post("/", (req, res) => {
   const newTotal = req.body;
+  console.log("This is the new total --> ", newTotal);
   monthlyTotals
     .add(newTotal)
     .then((total) => {
@@ -15,7 +16,7 @@ router.post("/", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(400).json({
-        error: "Error creating total",
+        message: "Error creating total",
       });
     });
 });
