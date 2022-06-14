@@ -13,13 +13,14 @@ router.post("/register", (req, res) => {
 
   Users.add(user)
     .then((users) => {
-      console.log(users);
+      console.log("This is the users -->",users);
       res.status(200).json({
         message: "Register Completed!",
       });
     })
 
     .catch((error) => {
+      console.log("This is the users -->",user);
       console.log(error);
       res.status(500).json({
         message: "Register Failed!"
