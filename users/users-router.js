@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken");
 // Registers a user
 router.post("/register", (req, res) => {
   let user = req.body;
-  const hash = bc.hashSync(user.password, 4);
+  const rounds = process.env.HASH_ROUNDS || 4;
+  const hash = bc.hashSync(user.password, rounds);
   user.password = hash;
   console.log("This is the hash -->",hash);
 
