@@ -8,6 +8,7 @@ router.post("/register", (req, res) => {
   let user = req.body;
   const hash = bc.hashSync(user.password, 4);
   user.password = hash;
+  console.log("This is the user -->",user);
 
   Users.add(user)
     .then((users) => {
