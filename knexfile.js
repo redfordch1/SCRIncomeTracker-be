@@ -7,6 +7,7 @@ module.exports = {
       filename: "scr_income_tracker.db",
       user: "chaseredford",
       password: "chasarsammarv",
+      ssl: true
     },
     pool: {
       min: 3,
